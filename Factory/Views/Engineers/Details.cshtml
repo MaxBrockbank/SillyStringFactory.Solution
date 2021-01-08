@@ -1,0 +1,23 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>@Model.Name</h2>
+
+@if(Model.Machines.Count == 0)
+{
+  <p>This engineer is not certified on any machines in the factory yet.</p>
+}
+else
+{
+  <p> This engineer is certified on the following machines:</p>
+  <ul>
+  @foreach(var join in Model.Machines)
+  {
+    <li>@Html.ActionLink($"{@join.Machine.Name}", "Details", "Machines", new{id=@join.Machine.MachineId})</li>
+  }
+  </ul>
+}
+
