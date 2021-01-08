@@ -10,15 +10,14 @@ namespace Factory.Models
     FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
-      .SetBasePath(Directory.GetCurrentDirectory())
-      .AddJsonFile("appsettings.json")
-      .Build();
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .Build();
 
       var builder = new DbContextOptionsBuilder<FactoryContext>();
       var connectionString = configuration.GetConnectionString("DefaultConnection");
 
       builder.UseMySql(connectionString);
-
       return new FactoryContext(builder.Options);
     }
   }

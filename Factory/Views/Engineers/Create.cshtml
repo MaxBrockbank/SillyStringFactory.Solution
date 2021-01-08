@@ -1,0 +1,23 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Add New Engineer:</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model=>model.Name)
+  @Html.TextBoxFor(model=>model.Name)
+
+  if(@ViewBag.Machines.Count != 0)
+  {
+    @Html.Label("Select a machine")
+    @Html.DropDownList("MachineId")
+  }
+
+  <input type="submit" value="Add new engineer" class="btn btn-dark" />
+}
+
+<p>@Html.ActionLink("Back to Engineers", "Index")<p>
