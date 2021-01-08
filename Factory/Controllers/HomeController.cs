@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.Mvc;
 
-namespace ProgramName.Controllers
-{
-  public class HomeController : Controller
-  {
-    [Route ("/")]
+// namespace ProgramName.Controllers
+// {
+//   public class HomeController : Controller
+//   {
+//     [Route ("/")]
     
-  }
-}
+//   }
+// }
