@@ -5,7 +5,7 @@
 @model Factory.Models.Machine
 
 <h2>Edit @Model.Name</h2>
-
+<p>@Html.ActionLink($"Delete {@Model.Name}", "Delete", new{id=Model.MachineId})</p>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model=>model.MachineId)
