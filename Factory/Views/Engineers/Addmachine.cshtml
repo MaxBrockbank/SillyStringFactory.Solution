@@ -1,0 +1,19 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Add Machine to @Model.Name</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model=>model.EngineerId)
+
+  @Html.Label("Select Machine")
+  @Html.DropDownList("MachineId")
+  <input type="submit" value="Add machine" class="btn btn-dark" />
+}
+
+<p>@Html.ActionLink($"Back to {Model.Name}", "Details", new{id=Model.EngineerId} )</p>
+<p>@Html.ActionLink($"Back to Engineers", "Index")</p>

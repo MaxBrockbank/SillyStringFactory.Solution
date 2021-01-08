@@ -27,4 +27,5 @@ else
 }
 
 <p>@Html.ActionLink($"Edit {@Model.Name}'s Profile", "Edit", new{id=Model.EngineerId})</p>
+<p>@Html.ActionLink($"Add to {@Model.Name}'s Machine List", "AddMachine", new{id=Model.EngineerId})</p>
 <p>@Html.ActionLink("Back to Engineer List", "Index")</p>
