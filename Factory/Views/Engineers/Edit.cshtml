@@ -5,6 +5,7 @@
 @model Factory.Models.Engineer
 
 <h2>Editing @Model.Name</h2>
+<p>@Html.ActionLink($"Delete {Model.Name}", "Delete", new{id=Model.EngineerId})</p>
 
 @using (Html.BeginForm())
 {
