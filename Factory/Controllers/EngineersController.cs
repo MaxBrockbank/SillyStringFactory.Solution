@@ -59,9 +59,27 @@ namespace Factory.Controllers
 
     [HttpPost]
     public ActionResult Edit(Engineer engineer, int MachineId){
+      if(MachineId != 0)
+      {
+        var relationship = _db.EngineerMachine
+          .Any(record => record.EngineerId == engineer.EngineerId && record.MachineId == MachineId);
+        if(!relationship)
+        {
+          _db.EngineerMachine.Add(new EngineerMachine() {EngineerId = engineer.EngineerId, MachineId = MachineId});
+        }
+      }
       _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Details", "Engineers", new {id=engineer.EngineerId});
+    }
+
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId, int EngineerId)
+    {
+      var thisEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(thisEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Engineers", new{id=EngineerId});
     }
   }
 }
