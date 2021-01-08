@@ -1,0 +1,32 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>@Model.Name</h2>
+
+@if(Model.Engineers.Count == 0)
+{
+  <p>There are no engineers in the factory certified to use this machine.</p>
+}
+else
+{
+  <h3>Certified Engineers:</h3>
+  <ul>
+    @foreach(var join in Model.Engineers)
+  {
+    <li>@Html.ActionLink($"{@join.Engineer.Name}","Details", "Engineers",new{id=@join.Engineer.EngineerId})</li>
+    @using (Html.BeginForm("DeleteEngineer", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      @Html.HiddenFor(model=>model.MachineId)
+      <input type="submit" value="Delete" class="btn btn-danger">
+    }
+
+  }
+  </ul>
+}
+<p>@Html.ActionLink($"Edit {@Model.Name}", "Edit", new{id=Model.MachineId})</p>
+<p>@Html.ActionLink($"Add to {@Model.Name}'s' engineer list", "AddEngineer", new{id=Model.MachineId})</p>
+<p>@Html.ActionLink("Back to Machine List", "Index")</p>

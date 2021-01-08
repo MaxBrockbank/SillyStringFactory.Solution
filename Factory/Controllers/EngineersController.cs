@@ -58,7 +58,8 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Engineer engineer, int MachineId){
+    public ActionResult Edit(Engineer engineer, int MachineId)
+    {
       if(MachineId != 0)
       {
         var relationship = _db.EngineerMachine
