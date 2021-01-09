@@ -1,4 +1,4 @@
-<h1 align="center">~Dr.Sillystring's Factory~</h1>
+<h1 align="center">~Dr.Sillystringz's Factory~</h1>
 <div align="center">
 <img src="https://github.com/MaxBrockbank.png" width="200px" height="auto" >
 </div>
@@ -6,6 +6,8 @@
 <p align="center">Updated on Friday, January 8th, 2021</p>
 
 # Description
+This project is a practice in using C# ASP.NET Core along with Entity Framework Core and MySQL to create an application to keep track of engineers that work in the Dr.Sillystringz factor, the machines in the factory, and the relationship between them.
+
 
 ## Required Technologies
 * C# .NET Core Ver 2.2.0
@@ -29,11 +31,27 @@
 * `dotnet ef mirgrations add (Migration name here)`
 * `dotnet ef database update`
 
-####
+#### Import Database using MySQL Workbench
+1. Open your MySQL workbench and enter the password you set on installation.
+2. Go to the nav bar at the top, click on Server > Data Import.
+3. Use the the option Import from Self-Contained File. Use the `max_brockbank.sql` file in the root directory of this project.
+4. Set the Default Target Schema or create a new one.
+5. Select all Schema Objects you wish to import.
+6. Select Dump Structure and Data.
+7. Start Import.
+
+
+
 ### Setting up `appsettings.json`
+1. Open the appsettings.json file
+2. find where it says `pwd=` and place your MySQL password directly after.
 
 ## Technologies Used
 * C# .NET Core
+* ASP.NET Core
+* ASP.NET Core Razor Pages
+* Entity Framework Core
+* MySQL
 
 ## Known Bugs
 * No currently known bugs, please contact me if any found 
