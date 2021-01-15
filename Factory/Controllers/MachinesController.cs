@@ -62,7 +62,7 @@ namespace Factory.Controllers
       }
       _db.Entry(machine).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details", "Machines", new {id=EngineerId});
+      return RedirectToAction("Details", "Machines", new {id=machine.MachineId});
     }
 
     public ActionResult Delete(int id)

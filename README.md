@@ -25,7 +25,7 @@ This project is a practice in using C# ASP.NET Core along with Entity Framework 
 5. Run `cd SillyStringFactory.Solution` or `cd (Whatever you changed the directory name to)` to then navigate to the project root directory.
 
 #### Generate MySQL Database Using Entity Framework Core
-1. In your terminal navigate to the SillyStringFactory.Solution/Factory directory. `cd SillyStringFactory.Solution/SillyStringFactory`.
+1. In your terminal navigate to the SillyStringFactory.Solution/Factory directory. `cd Factory`.
 2. Run the command `dotnet ef database update`. Entity Framework Core will then generate the database structure using the included migration files. 
 3. __OPTIONALLY__, should you need to make changes to the code that adjust the structure of the databse, you can apply those updates with the following two commands. 
 * `dotnet ef mirgrations add (Migration name here)`
@@ -44,7 +44,7 @@ This project is a practice in using C# ASP.NET Core along with Entity Framework 
 
 ### Setting up `appsettings.json`
 1. Open the appsettings.json file
-2. find where it says `pwd=` and place your MySQL password directly after.
+2. Change the `uid`, `port`, and `pwd` to your machine's configurations.
 
 ## Technologies Used
 * C# .NET Core

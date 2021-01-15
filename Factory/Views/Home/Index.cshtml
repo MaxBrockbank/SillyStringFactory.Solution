@@ -3,10 +3,39 @@
 }
 
 @using Factory.Models
-
-<div class="homepage">
-
-    <h3>@Html.ActionLink("See Engineers", "Index", "Engineers")</h3>
-    <h3>@Html.ActionLink("See Machines", "Index", "Machines")</h3>
-
+<div class="container hero" >
+    <h1>Welcome to Dr.Sillytringz's Factory </h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+        <h3>Current Engineers:</h3>
+        <ul>
+        @if(@ViewBag.Engineers.Count == 0)
+        {
+            <p>None - {@Html.ActionLink("Add New Engineer", "Create", "Engineers")</p>
+            
+        }
+        @foreach(var engineer in @ViewBag.Engineers)
+        {
+            <li>@Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new{id=@engineer.EngineerId})</li>
+        }
+        </ul>
+        </div>
+        <div class="col-lg-6">
+        <h3>Current Machines:</h3>
+        @if(@ViewBag.Machines.Count == 0){
+            <p>None - @Html.ActionLink("Add New Machine", "Create", "Machines")</p>
+        }
+        else
+        {
+        <ul>
+        @foreach(var machine in @ViewBag.Machines)
+        {
+            <li>@Html.ActionLink($"{@machine.Name}", "Details", "Machines", new{id=@machine.MachineId})</li>
+        }
+        </ul>
+        }
+        </div>
+    </div>
 </div>
